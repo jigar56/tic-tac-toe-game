@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Interactive Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">Tic Tac Toe</h1>
+            <div class="game-controls-header">
+                <div class="game-mode">
+                    <button id="modeToggle" class="mode-btn">Switch to Computer</button>
+                </div>
+                <div class="difficulty-selector" id="difficultySelector" style="display: none;">
+                    <label for="difficulty">AI Difficulty:</label>
+                    <select id="difficulty" class="difficulty-select">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <div class="score-board">
+            <div class="score-item">
+                <span class="player-label">Player X</span>
+                <span id="scoreX" class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <span class="player-label">Player O</span>
+                <span id="scoreO" class="score-value">0</span>
+            </div>
+        </div>
+
+        <div class="game-status">
+            <div id="currentPlayer" class="current-player">Player X's Turn</div>
+            <div id="gameMessage" class="game-message"></div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <div class="game-controls">
+            <button id="resetBtn" class="control-btn reset-btn">New Game</button>
+            <button id="gameModeBtn" class="control-btn game-mode-btn">Game Modes</button>
+            <button id="statsBtn" class="control-btn stats-btn">Statistics</button>
+        </div>
+
+        <!-- Game Modes Modal -->
+        <div id="gameModesModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Game Modes</h2>
+                <div class="game-modes-grid">
+                    <div class="game-mode-card" data-mode="classic">
+                        <h3>Classic</h3>
+                        <p>Traditional tic-tac-toe gameplay</p>
+                    </div>
+                    <div class="game-mode-card" data-mode="speed">
+                        <h3>Speed</h3>
+                        <p>5 seconds per move</p>
+                    </div>
+                    <div class="game-mode-card" data-mode="blitz">
+                        <h3>Blitz</h3>
+                        <p>3 seconds per move</p>
+                    </div>
+                    <div class="game-mode-card" data-mode="tournament">
+                        <h3>Tournament</h3>
+                        <p>Best of 5 games</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Modal -->
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Game Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Games Played</span>
+                        <span id="gamesPlayed" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Wins</span>
+                        <span id="totalWins" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Losses</span>
+                        <span id="totalLosses" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Draws</span>
+                        <span id="totalDraws" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Win Rate</span>
+                        <span id="winRate" class="stat-value">0%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best Streak</span>
+                        <span id="bestStreak" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Winning line overlay -->
+        <div id="winningLine" class="winning-line"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
